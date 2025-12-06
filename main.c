@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     printf("Adapter ID: %d\n", dev_id);
     printf("Starting discovery...\n");
     
-    len = 8;          // Продолжительность сканирования в интервалах по 1.28 секунд
+    len = 10;          // Продолжительность сканирования в интервалах по 1.28 секунд
     max_rsp = 255;    // Максимальное количество устройств
     flags = IREQ_CACHE_FLUSH;
     devices = (inquiry_info*)malloc(max_rsp * sizeof(inquiry_info));
