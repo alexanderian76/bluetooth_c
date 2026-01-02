@@ -28,8 +28,8 @@ int main(int argc, char **argv)
     struct sockaddr_rc addrress = { 0 };
     int s, status;
     
-    char dest[18]="";// = "B0:10:41:3F:6E:80";//My destination address Laptop
-    char namelaptop[20]="ss";
+    char dest[18]="E4:A7:A0:60:E6:71";// = "B0:10:41:3F:6E:80";//My destination address Laptop
+    char namelaptop[20]="alexander-ThinkPad-L460";
     
     
     // allocate a socket
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
         perror("hci_inquiry");
     }
     
-    for (i = 0; i < num_rsp; i++) {
+   /* for (i = 0; i < num_rsp; i++) {
         ba2str(&(ii+i)->bdaddr, addr);
         memset(name, 0, sizeof(name));
         if (hci_read_remote_name(sock, &(ii+i)->bdaddr, sizeof(name),
@@ -91,9 +91,10 @@ int main(int argc, char **argv)
         }
         }
         
-    }
+    }*/
  
- 
+  str2ba( dest, &addrress.rc_bdaddr );
+  flag = 1;
 /// End Search 
  
  
@@ -113,7 +114,7 @@ int main(int argc, char **argv)
     
     // send a message to server
     if( status == 0 ) {
-        status = write(s, "hello!", 6);
+        status = write(s, "hello! 123", 10);
         if (status == 6){
             printf("Send data to server done\n");
         }
